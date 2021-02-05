@@ -17,6 +17,7 @@ automation documentation for better temperture control, with an external tempera
   - Set maximum temperature to something high, like 35°C
   - Set hysteresis to 0.5°C (default is 1.0°C)
   - Make sure the valve control type is set to "PID"
+  - there's no need to set any 'local temperature correction' - this value won't be touched, but has no effect on the automation.
 - Enable the OpenWeatherMap integration(or similar) to get an outside temperature
 
 # recommended mods
