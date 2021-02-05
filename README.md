@@ -93,7 +93,6 @@ sensor:
     precision: 2
 ```
 
-
 # heat source detection
 
 <details>
@@ -609,7 +608,7 @@ action:
 mode: restart
 ```
 
-</detail>
+</details>
 
 # valve maintaince
 
