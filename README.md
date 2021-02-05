@@ -355,7 +355,8 @@ trigger:
       seconds: 5
   - platform: state
     entity_id: input_boolean.heatsource_present_kitchen
-    for: '00:00:30'
+    for:
+      seconds: 5
     to: 'on'
     from: 'off'
   - platform: homeassistant
