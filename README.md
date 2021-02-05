@@ -1,5 +1,5 @@
 # Tuya-thermostatic-valve
-automation documentation for better temperture control, with an external temperature probe
+automation documentation for better temperture control, with an external temperature probe / window contact
 
 
 # prerequisites
@@ -20,4 +20,4 @@ automation documentation for better temperture control, with an external tempera
 
 # recommended mods
 
-- Attach a 3 V power supply at the [pcb](./img/pcb-main-board.jpg) to avoid fast battery drainage due to larger/quicker valve operations, [example picture]()
+- Attach a 3 V power supply at the pcb to avoid fast battery drainage due to larger/more often valve operation, see [install-powersupply](power_supply_mod.md)
