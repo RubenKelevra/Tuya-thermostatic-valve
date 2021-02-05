@@ -96,6 +96,10 @@ sensor:
 
 # heat source detection
 
+This automatisms is an example how to detect a running stove or a heat generateing device early, to avoid running the heat at the same timewhile those devices are running. This way you can avoid venting the room in some cases, when it would become too hot otherwise.
+
+Detection with just the temperature probe is too delayed in most cases to help much.
+
 <details>
   
 ```yaml
@@ -178,6 +182,8 @@ max: 10
 </details>
 
 # heat mode automation
+
+This automatisms shuts the valves in all scenarios where this is commanded by other automatisms or by the user.
 
 <details>
   
@@ -276,6 +282,8 @@ max: 10
 
 # 'heat rising too quickly'-detection
 
+This automatism can detect sudden rises in temperature, like if someone is taking a shower in a room, does cooking or has an electrical device on, which generates a lot of heat. It can also detect a haywire reaction of the valve opening too long which would lead to an overshooting of the set temperature. This is important if you vented the room down several degrees and you're trying to heat it up again. This automatism will shut the valve to give the radiator more time to spread the heat in the room.
+
 <details>
   
 ```yaml  
@@ -341,6 +349,8 @@ mode: single
 </details>
 
 # switch the heat mode for the window and heat sources
+
+Those automatisms switch the input_select-heat modes according to the heat source and window sensors.
 
 <details>
   
@@ -419,6 +429,14 @@ max: 10
 </details>
 
 # thermostat controller
+
+The main temperature controller automatism. Gets triggered by some events pretty regularily, but the delay at the end and the single execution makes sure it only runs once a minute at most - to avoid too many valve operations.
+
+The **first condition** in the `choose` makes sure that if the temperature is within -0.5°C the heating is reduced properly by the valve. If not the valve is closed and the valve's automtion restarted at 0%, which ususlly let it open again slowly - if neccessary - on it's own.
+
+When it's 30% or below it's ususally already detecting the approached set temperature right, and will close soon.
+
+The **second condition** in the `choose` just updates the set temperature on the valve (relative to the measured temperature of the valve itself) as long as the set temperature isn't reached.
 
 <details>
   
@@ -542,6 +560,11 @@ mode: single
 
 # a simple weather detection
 
+This detection tries to detect two different type of weather scanarios:
+
+- Hot days, where you like to get some cool air into your house to chill it down in the night. You don't want no heating to turn on on those days, even in the night.
+- Mixed bag weather, like when it's around 20°C and bit cooler in the night, but you don't want your central heating system to turn on to inrease the temperature in all rooms by say 1°C.
+
 <details>
   
 ```yaml  
@@ -585,6 +608,8 @@ mode: single
 </details>
 
 # home assistant startup
+
+On startup all valves will be closed and the heating mode will be set to the internal value `default` to make sure the automatism has a defined starting point.
 
 <details>
 
