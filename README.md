@@ -28,8 +28,6 @@ automation documentation for better temperture control, with an external tempera
 
 - Can only set one temperature, if you need a week/daily cycle, you need to modify the automations or just modify the slider
 - Can only work with an good external temperture probe, which is properly installed, see [installation temperature probe](installation_temperature_probe.md) for help
-- a changed target temperature setting **might not be applied immediately** due to the one minute filter (with the delay and single action) in the thermostat controller automation
-  this is usually not an issue but might be fixed in the future
 - there's no "get the heat on fast" for a very cold room (but the TRV should turn on the heat pretty quickly anyway, since there's a high temperature differential)
 - there's no "boost mode" if you feel very cold and just want a short increase in temperature. *Workaround:* feel free to use just your own automation for this, to create a button which increases the target temperature for a while and then turn it back to the previous setting. You can also still use the boost mode on the TRVs
 - The controls at the TRV are completely useless. Every change there will be overwritten on the next change by the automation 
@@ -483,6 +481,9 @@ trigger:
     entity_id: sensor.radiator_valve_kitchen_position
     for: '00:02:00'
     above: '99'
+  - platform: state
+    entity_id: input_number.target_temp_kitchen
+    for: '00:01:00'
 condition:
   - condition: state
     entity_id: input_select.heating_mode_kitchen
