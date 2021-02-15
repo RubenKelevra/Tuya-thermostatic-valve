@@ -80,7 +80,7 @@ sensor:
         precision: 2  
 ```
 
-- `
+- `sensor.temperature_statistics_24h`
 ```yaml
 sensor:
   - platform: statistics
