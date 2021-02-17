@@ -326,16 +326,29 @@ trigger:
     entity_id: input_select.heating_mode_kitchen
     to: cut
     for: '00:12:00'
-  - platform: homeassistant
-    event: start
+  - platform: time_pattern
+    minutes: /15
 condition:
   - condition: state
     entity_id: input_select.heating_mode_kitchen
     state: cut
-  - condition: state
-    entity_id: input_boolean.heating_maintaince_kitchen
-    state: 'off'
+    for: '00:11:55'
 action:
+  - choose:
+      - conditions:
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: input_boolean.heating_maintaince_kitchen
+                state: 'off'
+        sequence:
+          - wait_for_trigger:
+              - platform: state
+                entity_id: input_boolean.heating_maintaince_kitchen
+                to: 'off'
+            timeout: '00:11:55'
+            continue_on_timeout: false
+    default: []
   - service: input_select.select_option
     data:
       option: default
