@@ -545,7 +545,7 @@ action:
                 {{ ((states("input_number.target_temp_kitchen") | float -
                 states("sensor.temp_sensor_kitchen_temperature") | float ) +
                 state_attr("climate.radiator_valve_kitchen",
-                "local_temperature") | float) | round(1, "half")}}
+                "local_temperature") | float) | round(1, "ceil")}}
       - conditions:
           - condition: template
             value_template: >-
@@ -564,7 +564,7 @@ action:
                 {{ ((states("input_number.target_temp_kitchen") | float -
                 states("sensor.temp_sensor_kitchen_temperature") | float ) +
                 state_attr("climate.radiator_valve_kitchen",
-                "local_temperature") | float) | round(1, "half")}}
+                "local_temperature") | float) | round(1, "ceil")}}
     default: []
   - delay: '00:01:00'
 mode: single
