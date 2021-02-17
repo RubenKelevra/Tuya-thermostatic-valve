@@ -330,6 +330,7 @@ condition:
   - condition: state
     entity_id: input_select.heating_mode_kitchen
     state: cut
+    for: '00:11:55'
 action:
   - choose:
       - conditions:
