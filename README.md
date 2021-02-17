@@ -326,6 +326,8 @@ trigger:
     entity_id: input_select.heating_mode_kitchen
     to: cut
     for: '00:12:00'
+  - platform: time_pattern
+    minutes: /15
 condition:
   - condition: state
     entity_id: input_select.heating_mode_kitchen
