@@ -346,7 +346,7 @@ action:
               - platform: state
                 entity_id: input_boolean.heating_maintaince_kitchen
                 to: 'off'
-            timeout: '00:15:00'
+            timeout: '00:11:55'
             continue_on_timeout: false
     default: []
   - service: input_select.select_option
