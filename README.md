@@ -533,11 +533,6 @@ action:
                         entity_id: sensor.radiator_valve_kitchen_position
                         below: '1'
                     timeout: '00:01:00'
-          - service: climate.set_hvac_mode
-            data:
-              hvac_mode: auto
-            entity_id: climate.radiator_valve_kitchen
-          - delay: '00:00:10'
           - service: climate.set_temperature
             data_template:
               entity_id: climate.radiator_valve_kitchen
@@ -546,17 +541,17 @@ action:
                 states("sensor.temp_sensor_kitchen_temperature") | float ) +
                 state_attr("climate.radiator_valve_kitchen",
                 "local_temperature") | float) | round(1, "ceil")}}
+          - delay: '00:00:10'
+          - service: climate.set_hvac_mode
+            data:
+              hvac_mode: auto
+            entity_id: climate.radiator_valve_kitchen
       - conditions:
           - condition: template
             value_template: >-
               {{ (states("input_number.target_temp_kitchen") | float) >
               (states("sensor.temp_sensor_kitchen_temperature") | float) }}
         sequence:
-          - service: climate.set_hvac_mode
-            data:
-              hvac_mode: auto
-            entity_id: climate.radiator_valve_kitchen
-          - delay: '00:00:10'
           - service: climate.set_temperature
             data_template:
               entity_id: climate.radiator_valve_kitchen
@@ -565,6 +560,11 @@ action:
                 states("sensor.temp_sensor_kitchen_temperature") | float ) +
                 state_attr("climate.radiator_valve_kitchen",
                 "local_temperature") | float) | round(1, "ceil")}}
+          - delay: '00:00:10'
+          - service: climate.set_hvac_mode
+            data:
+              hvac_mode: auto
+            entity_id: climate.radiator_valve_kitchen
     default: []
   - delay: '00:01:00'
 mode: single
