@@ -326,8 +326,6 @@ trigger:
     entity_id: input_select.heating_mode_kitchen
     to: cut
     for: '00:12:00'
-  - platform: homeassistant
-    event: start
 condition:
   - condition: state
     entity_id: input_select.heating_mode_kitchen
