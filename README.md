@@ -452,7 +452,7 @@ The **second condition** in the `choose` just updates the set temperature on the
 <details>
   
 ```yaml
-alias: 'Heating: Set temperature for default mode - Kitchen v4.1'
+alias: 'Heating: Set temperature for default mode - Kitchen v4.2'
 description: ''
 trigger:
   - platform: state
