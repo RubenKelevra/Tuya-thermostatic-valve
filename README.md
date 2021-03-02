@@ -292,9 +292,11 @@ trigger:
     entity_id: sensor.temp_sensor_kitchen_temperature
   - platform: state
     entity_id: sensor.radiator_valve_kitchen_position
+    for: '00:00:30'
   - platform: state
     entity_id: climate.radiator_valve_kitchen
     attribute: temperature
+    for: '00:00:30'
 condition:
   - condition: numeric_state
     entity_id: sensor.derivation_filtered_temperature_kitchen
