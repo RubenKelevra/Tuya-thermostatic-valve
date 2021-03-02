@@ -186,7 +186,7 @@ This automatisms shuts the valves in all scenarios where this is commanded by ot
 <details>
   
 ```yaml
-alias: 'Heating: Shut valve when heat mode is off/cut - Kitchen'
+alias: 'Heating: Shut valve when heat mode is off/cut + weather detection - Kitchen'
 description: ''
 trigger:
   - platform: state
@@ -195,6 +195,9 @@ trigger:
   - platform: state
     entity_id: input_select.heating_mode_kitchen
     to: cut
+  - platform: state
+    entity_id: input_select.heating_forced_off_weather
+    from: 'no'
 condition:
   - condition: or
     conditions:
@@ -204,6 +207,11 @@ condition:
       - condition: state
         entity_id: input_select.heating_mode_kitchen
         state: cut
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: input_select.heating_forced_off_weather
+            state: 'no'
 action:
   - choose:
       - conditions:
