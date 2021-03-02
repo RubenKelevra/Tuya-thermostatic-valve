@@ -603,7 +603,11 @@ action:
           - condition: numeric_state
             entity_id: sensor.temperature_statistics_24h
             attribute: max_value
-            above: '22'
+            above: '26'
+          - condition: numeric_state
+            entity_id: sensor.temperature_statistics_24h
+            attribute: min_value
+            above: '10'
         sequence:
           - service: input_select.select_option
             data:
@@ -613,7 +617,7 @@ action:
           - condition: numeric_state
             entity_id: sensor.temperature_statistics_24h
             attribute: min_value
-            above: '15'
+            above: '18'
         sequence:
           - service: input_select.select_option
             data:
