@@ -192,8 +192,6 @@ trigger:
   - platform: state
     entity_id: input_select.heating_mode_kitchen
     to: 'off'
-  - platform: homeassistant
-    event: start
   - platform: state
     entity_id: input_select.heating_mode_kitchen
     to: cut
