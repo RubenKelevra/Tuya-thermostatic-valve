@@ -23,7 +23,7 @@ automation documentation for better temperture control, with an external tempera
 
 # recommended mods
 
-- Attach a 3 V power supply at the pcb to avoid fast battery drainage due to larger/more often valve operation, see [power supply mod](power_supply_mod.md)
+- Attach a 3 V power supply at the pcb to avoid fast battery drainage due to larger/more often valve operation, see [power supply mod](https://github.com/RubenKelevra/Tuya-thermostatic-valve/issues/17#issuecomment-837120836)
 
 # limitations
 
