@@ -8,6 +8,7 @@ automation documentation for better temperture control, with an external tempera
 - Properly setup Zigbee2MQTT plugin (or similar)
 - properly installed
   - [TuYa TS0601](https://www.zigbee2mqtt.io/devices/TS0601_thermostat.html) thermostat
+  - [Aqara Temperature Sensor](https://www.zigbee2mqtt.io/devices/WSDCGQ11LM.html) (or similar)
   - [Aqara window contact sensor](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) (or similar)
   - [TuYa TS0121 plug](https://www.zigbee2mqtt.io/devices/TS0121_plug.html) (or similar) for any electrical heat source
 - latest thermostat firmware
